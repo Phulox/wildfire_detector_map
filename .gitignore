@@ -1,4 +1,10 @@
 #Environments
 .env 
 *.env
-!.env.example
+.env.example
+
+app.log
+data
+logs
+tests
+__pycache__
