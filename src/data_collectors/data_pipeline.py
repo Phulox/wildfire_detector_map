@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 #ETL format
 class WildfireDataPipeline:
-    def __init__(self, db_path: str = './wildfire_detector_map/src/database/wildfire_data.db'):
+    def __init__(self, db_path: str = './data/database/wildfire_data.db'):
         self.db_path = db_path
         self.baseUrlMeteo = 'https://api.open-meteo.com/v1/forecast'
         self.init_database
@@ -324,4 +324,4 @@ if __name__ == '__main__':
     
     # Run the complete pipeline
     pipeline.run_pipeline()
-    base_url_nasa = f"https://firms.modaps.eosdis.nasa.gov/api/country/csv/{NASA_FIRMS_API_KEY}/MODIS_NRT/USA/1"
+    
