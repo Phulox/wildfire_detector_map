@@ -1,7 +1,7 @@
-const map = L.map('map', {
+const map = new L.map('map', {
     center: [20, 0], // Center on equator, prime meridian (good world center)
-    zoom: 2,         // Zoom level 2 shows whole world without duplicates
-    minZoom: 2,      // Prevent zooming out further (avoids duplicates)
+    zoom: 3,         // Zoom level 2 shows whole world without duplicates and eliminates side bars
+    minZoom: 3,      // Prevent zooming out further (avoids duplicates) and eliminates side bars
     maxZoom: 10,     // Maximum zoom in level
     worldCopyJump: false,  // Disable world wrapping
     maxBounds: [           // Lock user into 1 world copy
@@ -11,7 +11,9 @@ const map = L.map('map', {
     maxBoundsViscosity: 1.0         
 })
 
-L.tileLayer('https://api.maptiler.com/maps/topo-v2/{z}/{x}/{y}.png?key=NcQsXOqcUf1QGwQBeXN6',{
+new L.tileLayer('https://api.maptiler.com/maps/topo-v2/{z}/{x}/{y}.png?key=NcQsXOqcUf1QGwQBeXN6',{
     attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
     noWrap: true // Prevent tile repetition horizontally
 }).addTo(map);
+
+new L.Control.Geocoder().addTo(map);
