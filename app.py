@@ -31,19 +31,16 @@ def get_active_fires():
     """Get all active fires from the last 24 hours"""
     try:
         conn = get_db_connect()
-
-        # Get fires from the last 24 hours
         yesterday = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
-
         query = '''
             SELECT 
                 latitude, longitude, brightness, confidence, 
                 acq_date, acq_time, satellite, frp, daynight
             FROM active_fires 
-            WHERE acq_date >= ? 
+            WHERE acq_date >= ?
             ORDER BY acq_date DESC, acq_time DESC
         '''
-        cursor = conn.execute(query,(yesterday,))
+        cursor = conn.execute(query, (yesterday,))
         fires = cursor.fetchall()
         conn.close()
 
