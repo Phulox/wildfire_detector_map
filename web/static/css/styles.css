@@ -10,3 +10,18 @@
     bottom: 0; 
     left: 0;
 }
+
+#showActFireBtn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    background-color: white;
+    border: 2px solid #444;
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    top: 100px;
+    
+}
