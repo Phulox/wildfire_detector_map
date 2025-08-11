@@ -16,16 +16,18 @@ new L.tileLayer('https://api.maptiler.com/maps/topo-v2/{z}/{x}/{y}.png?key=NcQsX
     noWrap: true // Prevent tile repetition horizontally
 }).addTo(map)
 
-new L.Control.Geocoder().addTo(map)
+const p = new L.Control.Geocoder({
+    position: 'topright'
 
-// Add this debug version to your JavaScript
+}).addTo(map)
+
 let fireMarkers = [];
 let addedMarkers = false;
 
 const showActiveFires = document.getElementById('showActFireBtn')
 
 showActiveFires.addEventListener('click', () => {
-    console.log('Button clicked!'); // Debug: Check if button click is detected
+    console.log('Button clicked!');
 
     // option to remove markers from map using toggle method
     if(addedMarkers){
@@ -77,10 +79,10 @@ showActiveFires.addEventListener('click', () => {
                 fireMarkers.push(marker);
             });
 
+            // toggle to removing active fires
             showActiveFires.textContent = 'Remove Active Fires';
             addedMarkers = true;
             
-
 
             if (fireMarkers.length > 0) {
                 const group = L.featureGroup(fireMarkers);
@@ -97,4 +99,3 @@ showActiveFires.addEventListener('click', () => {
             alert('Error loading fire data: ' + err.message);
         });
 });
-
