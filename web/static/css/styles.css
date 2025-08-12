@@ -2,8 +2,15 @@
   margin: 0;
   padding: 0; 
 }
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 
 #map {
+    height: 100vh; /* full height */
+    width: 100%;
     position: absolute; 
     top: 0; 
     right: 0; 
